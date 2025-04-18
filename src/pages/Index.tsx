@@ -46,8 +46,10 @@ const Index = () => {
 
       <Section className="bg-gradient-to-b from-white to-gray-50 pt-10 pb-16">
         <div className="container max-w-5xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight animate-fade-in">
-            Transforming African Agriculture through AI and Finance Access
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight animate-slide-up">
+            Transforming African Agriculture through 
+            <span className="block md:inline"> </span>
+            <span className="text-[#921573]">AI and Finance Access</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-3xl mx-auto">
             Join our waitlist today and be among the first to experience AI-powered farming advice, financing, and trade connections!
