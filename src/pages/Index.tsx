@@ -22,7 +22,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
-      {/* Sticky CTA - visible after scrolling */}
       <div className={`fixed bottom-0 left-0 right-0 bg-agrilync-teal py-3 px-4 transform transition-transform duration-300 z-50 flex justify-center items-center ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}>
         <div className="container max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-white">
@@ -35,7 +34,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Header with Logo */}
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
         <div className="flex justify-center">
           <img 
@@ -46,11 +44,10 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
       <Section className="bg-gradient-to-b from-white to-gray-50 pt-10 pb-16">
         <div className="container max-w-5xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight">
-            🌱 Transforming African Agriculture through AI and Finance Access
+            Transforming African Agriculture through AI and Finance Access
           </h1>
           <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-3xl mx-auto">
             Join our waitlist today and be among the first to experience AI-powered farming advice, financing, and trade connections!
@@ -67,7 +64,63 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* Why Join AgriLync Section */}
+      <Section className="relative bg-gray-50 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/7bba4704-0754-4ba4-90f9-82a5ef93af03.png" 
+            alt="Happy farmer with fresh produce" 
+            className="w-full h-full object-cover opacity-15"
+          />
+          <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+        </div>
+        <div className="container max-w-5xl mx-auto relative z-10">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-agrilync-teal text-center">
+            Discover Our Features
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <FeatureCard 
+              icon={LineChart} 
+              title="AI Crop Advisory"
+              description="Smart, personalized planting and harvesting advice based on soil conditions and market trends."
+            />
+            <FeatureCard 
+              icon={Bug} 
+              title="AI Pest & Disease Alerts"
+              description="Early warnings to protect your crops before damage becomes severe."
+            />
+            <FeatureCard 
+              icon={CloudSun} 
+              title="Hyperlocal Weather Forecast"
+              description="Real-time local weather planning tailored to your specific farm location."
+            />
+            <FeatureCard 
+              icon={Wallet} 
+              title="Financing Platform"
+              description="Input loans and farm expansion financing with flexible repayment options."
+            />
+            <FeatureCard 
+              icon={Handshake} 
+              title="FarmPartner Initiative"
+              description="Find investors for your farm inputs and share the harvest benefits."
+            />
+            <FeatureCard 
+              icon={Store} 
+              title="E-commerce Marketplace"
+              description="Buy inputs and sell produce — no middlemen, better margins."
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section className="bg-white">
+        <div className="container max-w-5xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-agrilync-teal text-center">
+            How AgriLync Empowers You
+          </h2>
+          <RoleTabs />
+        </div>
+      </Section>
+
       <Section className="bg-white">
         <div className="container max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
@@ -96,48 +149,6 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* Key Features Section */}
-      <Section className="bg-gray-50">
-        <div className="container max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-agrilync-teal text-center">
-            🚀 Key Features of AgriLync (MVP Phase 1)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <FeatureCard 
-              icon={LineChart} 
-              title="📈 AI Crop Advisory"
-              description="Smart, personalized planting and harvesting advice based on soil conditions and market trends."
-            />
-            <FeatureCard 
-              icon={Bug} 
-              title="🐛 AI Pest & Disease Alerts"
-              description="Early warnings to protect your crops before damage becomes severe."
-            />
-            <FeatureCard 
-              icon={CloudSun} 
-              title="☀️ Hyperlocal Weather Forecast"
-              description="Real-time local weather planning tailored to your specific farm location."
-            />
-            <FeatureCard 
-              icon={Wallet} 
-              title="💸 Financing Platform"
-              description="Input loans and farm expansion financing with flexible repayment options."
-            />
-            <FeatureCard 
-              icon={Handshake} 
-              title="🤝 FarmPartner Initiative"
-              description="Find investors for your farm inputs and share the harvest benefits."
-            />
-            <FeatureCard 
-              icon={Store} 
-              title="🛒 E-commerce Marketplace"
-              description="Buy inputs and sell produce — no middlemen, better margins."
-            />
-          </div>
-        </div>
-      </Section>
-
-      {/* WhatsApp Community Banner */}
       <Section className="bg-gray-100">
         <div className="container max-w-5xl mx-auto">
           <div className="bg-white rounded-lg p-6 md:p-8 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
@@ -159,17 +170,6 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* Role-Based Benefits Section */}
-      <Section className="bg-white">
-        <div className="container max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-agrilync-teal text-center">
-            🌟 How AgriLync Empowers You
-          </h2>
-          <RoleTabs />
-        </div>
-      </Section>
-
-      {/* Final CTA Section */}
       <Section className="bg-agrilync-teal text-white">
         <div className="container max-w-5xl mx-auto text-center py-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
@@ -184,7 +184,6 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container max-w-5xl mx-auto px-4 text-center">
           <img 
