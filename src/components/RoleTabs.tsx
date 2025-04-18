@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Farmer, Briefcase, ShoppingCart, Sprout, Coins } from "lucide-react";
+import { User, Briefcase, ShoppingCart, Sprout, Coins } from "lucide-react";
 
 interface Role {
   id: string;
@@ -13,7 +13,7 @@ interface Role {
 const roles: Role[] = [
   {
     id: "farmers",
-    icon: <Farmer className="w-5 h-5" />,
+    icon: <User className="w-5 h-5" />,
     name: "Farmers",
     benefits: [
       "Access AI-powered crop advisory for optimal planting and harvesting",

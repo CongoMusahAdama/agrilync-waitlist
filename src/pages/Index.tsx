@@ -1,12 +1,11 @@
-
 import { useState, useEffect } from "react";
 import WaitlistButton from "@/components/WaitlistButton";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
 import { 
-  LineChart, Sprout, Bug, CloudSun, Wallet, HandShake, Store, 
-  ArrowDown, Farmer, Briefcase, ShoppingCart, Coins
+  LineChart, Sprout, Bug, CloudSun, Wallet, Handshake, Store, 
+  ArrowDown, User, Briefcase, ShoppingCart, Coins
 } from "lucide-react";
 
 const Index = () => {
@@ -75,10 +74,10 @@ const Index = () => {
             <div className="md:w-1/2">
               <div className="grid grid-cols-3 gap-6">
                 <div className="flex justify-center">
-                  <Farmer size={48} className="text-agrilync-green" />
+                  <User size={48} className="text-agrilync-green" />
                 </div>
                 <div className="flex justify-center">
-                  <HandShake size={48} className="text-agrilync-teal" />
+                  <Handshake size={48} className="text-agrilync-teal" />
                 </div>
                 <div className="flex justify-center">
                   <Wallet size={48} className="text-agrilync-green" />
@@ -125,7 +124,7 @@ const Index = () => {
               description="Input loans and farm expansion financing with flexible repayment options."
             />
             <FeatureCard 
-              icon={HandShake} 
+              icon={Handshake} 
               title="🤝 FarmPartner Initiative"
               description="Find investors for your farm inputs and share the harvest benefits."
             />
