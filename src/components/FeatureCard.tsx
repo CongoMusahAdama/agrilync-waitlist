@@ -15,10 +15,10 @@ const FeatureCard = ({ icon: Icon, title, description, className }: FeatureCardP
       "bg-white p-6 rounded-lg shadow-md transition-all duration-300 feature-card border border-gray-100",
       className
     )}>
-      <div className="mb-4 text-agrilync-green">
+      <div className="mb-4 text-agrilync-green animate-bounce-light">
         <Icon size={32} strokeWidth={1.5} />
       </div>
-      <h3 className="text-lg font-bold mb-2 text-agrilync-teal">{title}</h3>
+      <h3 className="text-lg font-bold mb-2 text-agrilync-teal">{h3}</h3>
       <p className="text-gray-700 text-sm">{description}</p>
     </div>
   );

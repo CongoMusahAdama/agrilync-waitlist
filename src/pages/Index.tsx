@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
 import { 
   LineChart, Sprout, Bug, CloudSun, Wallet, Handshake, Store, 
-  ArrowDown, User, Briefcase, ShoppingCart, Coins
+  ArrowDown, Briefcase, ShoppingCart, Coins, WhatsApp
 } from "lucide-react";
 
 const Index = () => {
@@ -74,7 +74,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
         </div>
         <div className="container max-w-5xl mx-auto relative z-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-agrilync-teal text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-agrilync-teal text-center animate-slide-up">
             Discover Our Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -139,7 +139,7 @@ const Index = () => {
             </div>
             <div className="md:w-1/2 text-center md:text-left">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-agrilync-teal">
-                Why Join AgriLync?
+                Why Choose Us?
               </h2>
               <p className="text-gray-700 text-lg">
                 The future of African Agriculture is digital. Be a pioneer. Access cutting-edge AI tools, financing, and a connected marketplace through AgriLync.
@@ -162,8 +162,9 @@ const Index = () => {
               <WaitlistButton 
                 variant="secondary"
                 link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
+                icon={<WhatsApp className="w-5 h-5" />}
               >
-                👉 Join WhatsApp Group
+                Join WhatsApp Group
               </WaitlistButton>
             </div>
           </div>
