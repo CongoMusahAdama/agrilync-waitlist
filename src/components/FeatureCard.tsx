@@ -18,7 +18,7 @@ const FeatureCard = ({ icon: Icon, title, description, className }: FeatureCardP
       <div className="mb-4 text-agrilync-green animate-bounce-light">
         <Icon size={32} strokeWidth={1.5} />
       </div>
-      <h3 className="text-lg font-bold mb-2 text-agrilync-teal">{h3}</h3>
+      <h3 className="text-lg font-bold mb-2 text-agrilync-teal">{title}</h3>
       <p className="text-gray-700 text-sm">{description}</p>
     </div>
   );

@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
 import { 
   LineChart, Sprout, Bug, CloudSun, Wallet, Handshake, Store, 
-  ArrowDown, Briefcase, ShoppingCart, Coins, WhatsApp
+  ArrowDown, Briefcase, ShoppingCart, Coins, MessageCircle, User
 } from "lucide-react";
 
 const Index = () => {
@@ -25,7 +25,7 @@ const Index = () => {
       <div className={`fixed bottom-0 left-0 right-0 bg-agrilync-teal py-3 px-4 transform transition-transform duration-300 z-50 flex justify-center items-center ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}>
         <div className="container max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-white">
-            <h3 className="text-lg font-bold">🚀 Ready to Revolutionize Agriculture?</h3>
+            <h3 className="text-lg font-bold">Ready to Revolutionize Agriculture?</h3>
             <p className="text-sm text-white/80">Join AgriLync's early waitlist today!</p>
           </div>
           <WaitlistButton className="whitespace-nowrap py-2 min-w-[180px]">
@@ -162,7 +162,7 @@ const Index = () => {
               <WaitlistButton 
                 variant="secondary"
                 link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
-                icon={<WhatsApp className="w-5 h-5" />}
+                icon={<MessageCircle className="w-5 h-5" />}
               >
                 Join WhatsApp Group
               </WaitlistButton>
