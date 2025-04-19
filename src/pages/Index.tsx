@@ -6,7 +6,8 @@ import RoleTabs from "@/components/RoleTabs";
 import { toast } from "sonner";
 import { 
   LineChart, Sprout, Bug, CloudSun, Wallet, Handshake, Store, 
-  MessageCircle, Facebook, Instagram, Linkedin, Mail, Phone, X
+  MessageCircle, Facebook, Instagram, Linkedin, Mail, Phone, X,
+  User
 } from "lucide-react";
 
 const Index = () => {
