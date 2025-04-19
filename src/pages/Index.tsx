@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
 import { toast } from "sonner";
 import { 
-  LineChart, Sprout, Bug, CloudSun, Wallet, Handshake, Store, 
+  LineChart, Bug, CloudSun, Wallet, Handshake, Store, 
   MessageCircle, Facebook, Instagram, Linkedin, Mail, Phone, X,
   User
 } from "lucide-react";
@@ -45,16 +45,14 @@ const Index = () => {
           <div className="flex items-center gap-4">
             <WaitlistButton 
               variant="secondary"
-              className="hidden md:flex"
-              onClick={handleWhatsAppClick}
               link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
               icon={<MessageCircle className="w-5 h-5" />}
+              onClick={handleWhatsAppClick}
             >
               Join Our WhatsApp Community
             </WaitlistButton>
             <WaitlistButton 
               onClick={handleWaitlistClick}
-              className="hidden md:flex"
             >
               Join the Waitlist
             </WaitlistButton>
@@ -76,11 +74,10 @@ const Index = () => {
                 Join our waitlist and be the first to connect with farmers, buyers, and investors through smart AI-driven tools!
               </p>
               <WaitlistButton 
-                className="text-lg inline-flex items-center gap-2"
+                className="text-lg inline-flex items-center"
                 onClick={handleWaitlistClick}
               >
                 Join the Waitlist
-                <span className="text-xl">→</span>
               </WaitlistButton>
             </div>
           </div>
