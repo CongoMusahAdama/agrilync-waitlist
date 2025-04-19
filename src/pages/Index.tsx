@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import WaitlistButton from "@/components/WaitlistButton";
 import FeatureCard from "@/components/FeatureCard";
@@ -7,8 +6,7 @@ import RoleTabs from "@/components/RoleTabs";
 import { toast } from "sonner";
 import { 
   LineChart, Sprout, Bug, CloudSun, Wallet, Handshake, Store, 
-  ArrowDown, Briefcase, ShoppingCart, Coins, MessageCircle, User,
-  Facebook, Instagram, Linkedin, Mail, Phone, X
+  MessageCircle, Facebook, Instagram, Linkedin, Mail, Phone, X
 } from "lucide-react";
 
 const Index = () => {
@@ -39,21 +37,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
-      <div className={`fixed bottom-0 left-0 right-0 bg-agrilync-teal py-3 px-4 transform transition-transform duration-300 z-50 flex justify-center items-center ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}>
-        <div className="container max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-white">
-            <h3 className="text-lg font-bold">Ready to Revolutionize Agriculture?</h3>
-            <p className="text-sm text-white/80">Join AgriLync's early waitlist today!</p>
-          </div>
-          <WaitlistButton className="whitespace-nowrap py-2 min-w-[180px]" onClick={handleWaitlistClick}>
-            Join the Waitlist
-          </WaitlistButton>
-        </div>
-      </div>
-
+      {/* Header with navigation */}
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
         <div className="flex justify-between items-center">
-          <div className="invisible">Placeholder</div> {/* Empty div for flex spacing */}
+          <div className="flex items-center gap-2">
+            <Sprout className="w-6 h-6 text-agrilync-teal" />
+            <span className="text-xl font-bold text-agrilync-teal">AgriLync</span>
+          </div>
           <div className="flex items-center gap-4">
             <WaitlistButton 
               variant="secondary"
@@ -62,47 +52,42 @@ const Index = () => {
               link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
               icon={<MessageCircle className="w-5 h-5" />}
             >
-              WhatsApp Community
+              Join WhatsApp Community
             </WaitlistButton>
             <WaitlistButton onClick={handleWaitlistClick} className="hidden md:flex">
               Join the Waitlist
             </WaitlistButton>
-            <div className="md:hidden flex gap-2">
-              <WaitlistButton 
-                variant="secondary" 
-                className="w-10 h-10 p-0 flex items-center justify-center rounded-full"
-                onClick={handleWhatsAppClick}
-                link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
-                icon={<MessageCircle className="w-5 h-5" />}
-              />
-              <WaitlistButton 
-                className="w-10 h-10 p-0 flex items-center justify-center rounded-full"
-                onClick={handleWaitlistClick}
-              >
-                <User className="w-5 h-5" />
-              </WaitlistButton>
-            </div>
           </div>
         </div>
       </header>
 
       <Section className="bg-gradient-to-b from-white to-gray-50 pt-10 pb-16">
-        <div className="container max-w-5xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight">
-            Transforming African Agriculture through 
-            <span className="block md:inline"> </span>
-            <span className="text-[#921573] animate-pulse-text">AI and Finance Access</span>
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-3xl mx-auto">
-            Join our waitlist today and be among the first to experience AI-powered farming advice, financing, and trade connections!
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <WaitlistButton className="text-lg min-w-[200px]" onClick={handleWaitlistClick}>
-              Join the Waitlist
-            </WaitlistButton>
-            <div className="flex items-center animate-bounce-light mt-8 md:mt-0">
-              <ArrowDown className="text-agrilync-magenta" size={24} />
-              <span className="ml-2 text-agrilync-magenta font-medium">Learn More</span>
+        <div className="container max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight">
+                Transforming African Agriculture through{" "}
+                <span className="text-agrilync-magenta animate-pulse-text">
+                  AI and Finance Access
+                </span>
+              </h1>
+              <p className="text-lg mb-8 text-gray-700">
+                Join our waitlist and be the first to connect with farmers, buyers, and investors through smart AI-driven tools!
+              </p>
+              <WaitlistButton 
+                className="text-lg inline-flex items-center gap-2"
+                onClick={handleWaitlistClick}
+              >
+                Join the Waitlist
+                <span className="text-xl">→</span>
+              </WaitlistButton>
+            </div>
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/9395ed0e-9e7c-409e-9a9d-655ba2ad06ae.png"
+                alt="Farmer using AgriLync platform"
+                className="w-full"
+              />
             </div>
           </div>
         </div>
@@ -213,20 +198,6 @@ const Index = () => {
               </WaitlistButton>
             </div>
           </div>
-        </div>
-      </Section>
-
-      <Section className="bg-agrilync-teal text-white">
-        <div className="container max-w-5xl mx-auto text-center py-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            🚀 Ready to Revolutionize Agriculture?
-          </h2>
-          <p className="text-lg mb-8 text-white/80 max-w-3xl mx-auto">
-            Join AgriLync's early waitlist and secure your place at the forefront of Africa's AgriTech future!
-          </p>
-          <WaitlistButton className="text-lg pulse-animation" onClick={handleWaitlistClick}>
-            Join the Waitlist
-          </WaitlistButton>
         </div>
       </Section>
 
