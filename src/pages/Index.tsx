@@ -36,7 +36,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
-      {/* Header with navigation */}
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -51,9 +50,12 @@ const Index = () => {
               link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
               icon={<MessageCircle className="w-5 h-5" />}
             >
-              Join WhatsApp Community
+              Join Our WhatsApp Community
             </WaitlistButton>
-            <WaitlistButton onClick={handleWaitlistClick} className="hidden md:flex">
+            <WaitlistButton 
+              onClick={handleWaitlistClick}
+              className="hidden md:flex"
+            >
               Join the Waitlist
             </WaitlistButton>
           </div>
@@ -80,13 +82,6 @@ const Index = () => {
                 Join the Waitlist
                 <span className="text-xl">→</span>
               </WaitlistButton>
-            </div>
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/9395ed0e-9e7c-409e-9a9d-655ba2ad06ae.png"
-                alt="Farmer using AgriLync platform"
-                className="w-full"
-              />
             </div>
           </div>
         </div>
