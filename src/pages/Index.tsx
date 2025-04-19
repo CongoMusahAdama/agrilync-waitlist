@@ -23,14 +23,12 @@ const Index = () => {
   }, []);
 
   const handleWaitlistClick = (e: React.MouseEvent) => {
-    // Allow the link to navigate, but also show a toast
     toast.success("Thank you for joining our waitlist!", {
       description: "We'll contact you soon with more information.",
     });
   };
 
   const handleWhatsAppClick = (e: React.MouseEvent) => {
-    // Allow the link to navigate, but also show a toast
     toast.success("Welcome to our community!", {
       description: "Connect with farmers and AgriTech enthusiasts.",
     });
@@ -42,7 +40,7 @@ const Index = () => {
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <Sprout className="w-6 h-6 text-agrilync-teal" />
+            <User className="w-6 h-6 text-agrilync-teal" />
             <span className="text-xl font-bold text-agrilync-teal">AgriLync</span>
           </div>
           <div className="flex items-center gap-4">
