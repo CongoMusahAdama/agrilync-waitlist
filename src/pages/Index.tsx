@@ -1,11 +1,14 @@
+
 import { useState, useEffect } from "react";
 import WaitlistButton from "@/components/WaitlistButton";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
+import { toast } from "sonner";
 import { 
   LineChart, Sprout, Bug, CloudSun, Wallet, Handshake, Store, 
-  ArrowDown, Briefcase, ShoppingCart, Coins, MessageCircle, User
+  ArrowDown, Briefcase, ShoppingCart, Coins, MessageCircle, User,
+  Facebook, Instagram, Linkedin, Mail, Phone, X
 } from "lucide-react";
 
 const Index = () => {
@@ -20,6 +23,20 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleWaitlistClick = (e: React.MouseEvent) => {
+    // Allow the link to navigate, but also show a toast
+    toast.success("Thank you for joining our waitlist!", {
+      description: "We'll contact you soon with more information.",
+    });
+  };
+
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    // Allow the link to navigate, but also show a toast
+    toast.success("Welcome to our community!", {
+      description: "Connect with farmers and AgriTech enthusiasts.",
+    });
+  };
+
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
       <div className={`fixed bottom-0 left-0 right-0 bg-agrilync-teal py-3 px-4 transform transition-transform duration-300 z-50 flex justify-center items-center ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}>
@@ -28,34 +45,59 @@ const Index = () => {
             <h3 className="text-lg font-bold">Ready to Revolutionize Agriculture?</h3>
             <p className="text-sm text-white/80">Join AgriLync's early waitlist today!</p>
           </div>
-          <WaitlistButton className="whitespace-nowrap py-2 min-w-[180px]">
+          <WaitlistButton className="whitespace-nowrap py-2 min-w-[180px]" onClick={handleWaitlistClick}>
             Join the Waitlist
           </WaitlistButton>
         </div>
       </div>
 
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
-        <div className="flex justify-center">
-          <img 
-            src="/lovable-uploads/e15183a9-8a70-4d60-9848-86abc4787185.png" 
-            alt="AgriLync Logo" 
-            className="h-12 md:h-16"
-          />
+        <div className="flex justify-between items-center">
+          <div className="invisible">Placeholder</div> {/* Empty div for flex spacing */}
+          <div className="flex items-center gap-4">
+            <WaitlistButton 
+              variant="secondary"
+              className="hidden md:flex"
+              onClick={handleWhatsAppClick}
+              link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
+              icon={<MessageCircle className="w-5 h-5" />}
+            >
+              WhatsApp Community
+            </WaitlistButton>
+            <WaitlistButton onClick={handleWaitlistClick} className="hidden md:flex">
+              Join the Waitlist
+            </WaitlistButton>
+            <div className="md:hidden flex gap-2">
+              <WaitlistButton 
+                variant="secondary" 
+                className="w-10 h-10 p-0 flex items-center justify-center rounded-full"
+                onClick={handleWhatsAppClick}
+                link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
+                icon={<MessageCircle className="w-5 h-5" />}
+              />
+              <WaitlistButton 
+                className="w-10 h-10 p-0 flex items-center justify-center rounded-full"
+                onClick={handleWaitlistClick}
+              >
+                <User className="w-5 h-5" />
+              </WaitlistButton>
+            </div>
+          </div>
         </div>
       </header>
 
       <Section className="bg-gradient-to-b from-white to-gray-50 pt-10 pb-16">
         <div className="container max-w-5xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight animate-slide-up">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight">
             Transforming African Agriculture through 
             <span className="block md:inline"> </span>
-            <span className="text-[#921573]">AI and Finance Access</span>
+            <span className="text-[#921573] animate-pulse-text">AI and Finance Access</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-3xl mx-auto">
             Join our waitlist today and be among the first to experience AI-powered farming advice, financing, and trade connections!
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <WaitlistButton className="text-lg min-w-[200px]">
+            <WaitlistButton className="text-lg min-w-[200px]" onClick={handleWaitlistClick}>
               Join the Waitlist
             </WaitlistButton>
             <div className="flex items-center animate-bounce-light mt-8 md:mt-0">
@@ -165,6 +207,7 @@ const Index = () => {
                 variant="secondary"
                 link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
                 icon={<MessageCircle className="w-5 h-5" />}
+                onClick={handleWhatsAppClick}
               >
                 Join WhatsApp Group
               </WaitlistButton>
@@ -181,22 +224,60 @@ const Index = () => {
           <p className="text-lg mb-8 text-white/80 max-w-3xl mx-auto">
             Join AgriLync's early waitlist and secure your place at the forefront of Africa's AgriTech future!
           </p>
-          <WaitlistButton className="text-lg pulse-animation">
+          <WaitlistButton className="text-lg pulse-animation" onClick={handleWaitlistClick}>
             Join the Waitlist
           </WaitlistButton>
         </div>
       </Section>
 
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container max-w-5xl mx-auto px-4 text-center">
-          <img 
-            src="/lovable-uploads/e15183a9-8a70-4d60-9848-86abc4787185.png" 
-            alt="AgriLync Logo" 
-            className="h-10 mx-auto mb-4"
-          />
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} AgriLync. Transforming African Agriculture.
-          </p>
+      <footer className="bg-gray-900 text-white py-10">
+        <div className="container max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">About AgriLync</h3>
+              <p className="text-gray-400">
+                Transforming African Agriculture through AI and Finance Access. 
+                Empowering farmers with technology and resources.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
+              <div className="flex flex-col gap-2">
+                <a href="tel:+233506626068" className="text-gray-400 hover:text-white flex items-center gap-2">
+                  <Phone size={16} /> 050 662 6068
+                </a>
+                <a href="mailto:agrilync@gmail.com" className="text-gray-400 hover:text-white flex items-center gap-2">
+                  <Mail size={16} /> agrilync@gmail.com
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+              <div className="flex gap-4">
+                <a href="https://facebook.com/agrilync" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-400 hover:text-white transition-colors">
+                  <Facebook size={24} />
+                </a>
+                <a href="https://twitter.com/agrilync" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-400 hover:text-white transition-colors">
+                  <X size={24} />
+                </a>
+                <a href="https://instagram.com/agrilync" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-400 hover:text-white transition-colors">
+                  <Instagram size={24} />
+                </a>
+                <a href="https://linkedin.com/company/agrilync" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-400 hover:text-white transition-colors">
+                  <Linkedin size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-6 text-center">
+            <p className="text-gray-500">
+              © {new Date().getFullYear()} AgriLync. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
