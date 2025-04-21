@@ -3,6 +3,8 @@ import WaitlistButton from "@/components/WaitlistButton";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
+import WaitlistForm from "@/components/WaitlistForm";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { 
   LineChart, Bug, CloudSun, Wallet, Handshake, Store, 
@@ -12,6 +14,7 @@ import {
 
 const Index = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [showWaitlistForm, setShowWaitlistForm] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,12 +25,6 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleWaitlistClick = (e: React.MouseEvent) => {
-    toast.success("Thank you for joining our waitlist!", {
-      description: "We'll contact you soon with more information.",
-    });
-  };
-
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     toast.success("Welcome to our community!", {
       description: "Connect with farmers and AgriTech enthusiasts.",
@@ -37,28 +34,30 @@ const Index = () => {
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <User className="w-6 h-6 text-agrilync-teal" />
-            <span className="text-xl font-bold text-agrilync-teal">AgriLync</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <WaitlistButton 
-              variant="secondary"
-              link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
-              icon={<MessageCircle className="w-5 h-5" />}
-              onClick={handleWhatsAppClick}
-            >
-              Join Our WhatsApp Community
-            </WaitlistButton>
-            <WaitlistButton 
-              onClick={handleWaitlistClick}
-            >
-              Join the Waitlist
-            </WaitlistButton>
-          </div>
+        <div className="flex justify-end items-center gap-2">
+          <WaitlistButton 
+            variant="secondary"
+            link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
+            icon={<MessageCircle className="w-4 h-4" />}
+            onClick={handleWhatsAppClick}
+            className="text-sm px-3 py-2"
+          >
+            Join Our WhatsApp Community
+          </WaitlistButton>
+          <WaitlistButton 
+            onClick={() => setShowWaitlistForm(true)}
+            className="text-sm px-3 py-2"
+          >
+            Join the Waitlist
+          </WaitlistButton>
         </div>
       </header>
+
+      <Dialog open={showWaitlistForm} onOpenChange={setShowWaitlistForm}>
+        <DialogContent className="sm:max-w-[425px]">
+          <WaitlistForm onClose={() => setShowWaitlistForm(false)} />
+        </DialogContent>
+      </Dialog>
 
       <Section className="bg-gradient-to-b from-white to-gray-50 pt-10 pb-16">
         <div className="container max-w-5xl mx-auto">

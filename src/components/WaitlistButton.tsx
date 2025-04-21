@@ -14,11 +14,11 @@ const WaitlistButton = ({
   className, 
   variant = "primary", 
   children,
-  link = "https://docs.google.com/forms/d/e/1FAIpQLSe5IQ5V9B2uV9PapVVkNxR649I-Lcfel-uEWyC8g2ssFM6bZg/viewform?usp=dialog",
+  link,
   icon,
   onClick
 }: WaitlistButtonProps) => {
-  const baseStyles = "py-3 px-6 rounded-md font-semibold transition-all duration-300 inline-flex items-center gap-2 text-center cta-button";
+  const baseStyles = "py-2 px-4 rounded-md font-semibold transition-all duration-300 inline-flex items-center gap-2 text-center";
   
   const variantStyles = {
     primary: "bg-agrilync-magenta text-white hover:bg-opacity-90",
@@ -31,11 +31,27 @@ const WaitlistButton = ({
     }
   };
 
+  if (link) {
+    return (
+      <a 
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cn(
+          baseStyles,
+          variantStyles[variant],
+          className
+        )}
+        onClick={handleClick}
+      >
+        {icon}
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <a 
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
       className={cn(
         baseStyles,
         variantStyles[variant],
@@ -45,7 +61,7 @@ const WaitlistButton = ({
     >
       {icon}
       {children}
-    </a>
+    </button>
   );
 };
 
