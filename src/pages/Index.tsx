@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import WaitlistButton from "@/components/WaitlistButton";
 import FeatureCard from "@/components/FeatureCard";
@@ -39,22 +38,38 @@ const Index = () => {
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
-        <div className="flex justify-end items-center gap-2">
-          <WaitlistButton 
-            variant="secondary"
-            link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
-            icon={<MessageCircle className="w-4 h-4" />}
-            onClick={handleWhatsAppClick}
-            className="text-sm px-3 py-1.5 text-xs sm:text-sm"
-          >
-            Join Our WhatsApp Community
-          </WaitlistButton>
-          <WaitlistButton 
-            onClick={() => setShowWaitlistForm(true)}
-            className="text-sm px-3 py-1.5 text-xs sm:text-sm"
-          >
-            Join the Waitlist
-          </WaitlistButton>
+        <div className="flex justify-between items-center">
+          <div className="hidden md:block w-1/3">
+            <img 
+              src="/lovable-uploads/c6337518-bf06-484f-ae02-dd818a8cee61.png"
+              alt="African farmer with harvested crops"
+              className="w-40 h-40 object-cover rounded-lg"
+            />
+          </div>
+          <div className="flex justify-end items-center gap-2 w-full md:w-2/3">
+            <WaitlistButton 
+              variant="secondary"
+              link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
+              icon={<MessageCircle className="w-4 h-4" />}
+              onClick={handleWhatsAppClick}
+              className="text-sm px-3 py-1.5 text-xs sm:text-sm"
+            >
+              Join Our WhatsApp Community
+            </WaitlistButton>
+            <WaitlistButton 
+              onClick={handleWaitlistClick}
+              className="text-sm px-3 py-1.5 text-xs sm:text-sm"
+            >
+              Join the Waitlist
+            </WaitlistButton>
+          </div>
+        </div>
+        <div className="block md:hidden mt-4">
+          <img 
+            src="/lovable-uploads/c6337518-bf06-484f-ae02-dd818a8cee61.png"
+            alt="African farmer with harvested crops"
+            className="w-full h-48 object-cover rounded-lg"
+          />
         </div>
       </header>
 
@@ -147,28 +162,13 @@ const Index = () => {
 
       <Section className="bg-white">
         <div className="container max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-            <div className="md:w-1/2">
-              <div className="grid grid-cols-3 gap-6">
-                <div className="flex justify-center">
-                  <User size={48} className="text-agrilync-green" />
-                </div>
-                <div className="flex justify-center">
-                  <Handshake size={48} className="text-agrilync-teal" />
-                </div>
-                <div className="flex justify-center">
-                  <Wallet size={48} className="text-agrilync-green" />
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-agrilync-teal">
-                Why Choose Us?
-              </h2>
-              <p className="text-gray-700 text-lg">
-                The future of African Agriculture is digital. Be a pioneer. Access cutting-edge AI tools, financing, and a connected marketplace through AgriLync.
-              </p>
-            </div>
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-agrilync-teal">
+              Why Choose Us?
+            </h2>
+            <p className="text-gray-700 text-lg">
+              The future of African Agriculture is digital. Be a pioneer. Access cutting-edge AI tools, financing, and a connected marketplace through AgriLync.
+            </p>
           </div>
         </div>
       </Section>
