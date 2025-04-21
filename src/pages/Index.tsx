@@ -1,29 +1,18 @@
 import { useState, useEffect } from "react";
-import WaitlistButton from "@/components/WaitlistButton";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
-import WaitlistForm from "@/components/WaitlistForm";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import WaitlistForm from "@/components/WaitlistForm";
+import Header from "@/components/Header";
 import { toast } from "sonner";
 import { 
   LineChart, Bug, CloudSun, Wallet, Handshake, Store, 
-  MessageCircle, Facebook, Instagram, Linkedin, Mail, Phone, X,
-  User
+  MessageCircle, Facebook, Instagram, Linkedin, Mail, Phone, X 
 } from "lucide-react";
 
 const Index = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [showWaitlistForm, setShowWaitlistForm] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
-    };
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     toast.success("Welcome to our community!", {
@@ -31,77 +20,18 @@ const Index = () => {
     });
   };
 
-  const handleWaitlistClick = () => {
-    setShowWaitlistForm(true);
-  };
-
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
-      <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
-        <div className="flex justify-between items-center">
-          <div className="hidden md:block w-1/3">
-            <img 
-              src="/lovable-uploads/c6337518-bf06-484f-ae02-dd818a8cee61.png"
-              alt="African farmer with harvested crops"
-              className="w-40 h-40 object-cover rounded-lg"
-            />
-          </div>
-          <div className="flex justify-end items-center gap-2 w-full md:w-2/3">
-            <WaitlistButton 
-              variant="secondary"
-              link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
-              icon={<MessageCircle className="w-4 h-4" />}
-              onClick={handleWhatsAppClick}
-              className="text-sm px-3 py-1.5 text-xs sm:text-sm"
-            >
-              Join Our WhatsApp Community
-            </WaitlistButton>
-            <WaitlistButton 
-              onClick={handleWaitlistClick}
-              className="text-sm px-3 py-1.5 text-xs sm:text-sm"
-            >
-              Join the Waitlist
-            </WaitlistButton>
-          </div>
-        </div>
-        <div className="block md:hidden mt-4">
-          <img 
-            src="/lovable-uploads/c6337518-bf06-484f-ae02-dd818a8cee61.png"
-            alt="African farmer with harvested crops"
-            className="w-full h-48 object-cover rounded-lg"
-          />
-        </div>
-      </header>
+      <Header 
+        onWhatsAppClick={handleWhatsAppClick}
+        onWaitlistClick={() => setShowWaitlistForm(true)}
+      />
 
       <Dialog open={showWaitlistForm} onOpenChange={setShowWaitlistForm}>
         <DialogContent className="sm:max-w-[425px]">
           <WaitlistForm onClose={() => setShowWaitlistForm(false)} />
         </DialogContent>
       </Dialog>
-
-      <Section className="bg-gradient-to-b from-white to-gray-50 pt-10 pb-16">
-        <div className="container max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight">
-                Transforming African Agriculture through{" "}
-                <span className="text-agrilync-magenta animate-pulse-text">
-                  AI and Finance Access
-                </span>
-              </h1>
-              <p className="text-lg mb-8 text-gray-700">
-                Join our waitlist and be the first to connect with farmers, buyers, and investors through smart AI-driven tools!
-              </p>
-              <WaitlistButton 
-                className="text-lg inline-flex items-center"
-                onClick={handleWaitlistClick}
-              >
-                Join the Waitlist
-              </WaitlistButton>
-            </div>
-          </div>
-        </div>
-      </Section>
 
       <Section className="relative bg-gray-50 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -148,15 +78,6 @@ const Index = () => {
               description="Buy inputs and sell produce — no middlemen, better margins."
             />
           </div>
-        </div>
-      </Section>
-
-      <Section className="bg-white">
-        <div className="container max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-agrilync-teal text-center">
-            How AgriLync Empowers You
-          </h2>
-          <RoleTabs />
         </div>
       </Section>
 
