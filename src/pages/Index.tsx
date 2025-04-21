@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import WaitlistButton from "@/components/WaitlistButton";
 import FeatureCard from "@/components/FeatureCard";
@@ -31,6 +32,10 @@ const Index = () => {
     });
   };
 
+  const handleWaitlistClick = () => {
+    setShowWaitlistForm(true);
+  };
+
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
       <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
@@ -40,13 +45,13 @@ const Index = () => {
             link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
             icon={<MessageCircle className="w-4 h-4" />}
             onClick={handleWhatsAppClick}
-            className="text-sm px-3 py-2"
+            className="text-sm px-3 py-1.5 text-xs sm:text-sm"
           >
             Join Our WhatsApp Community
           </WaitlistButton>
           <WaitlistButton 
             onClick={() => setShowWaitlistForm(true)}
-            className="text-sm px-3 py-2"
+            className="text-sm px-3 py-1.5 text-xs sm:text-sm"
           >
             Join the Waitlist
           </WaitlistButton>
