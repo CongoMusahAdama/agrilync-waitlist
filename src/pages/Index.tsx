@@ -1,9 +1,11 @@
+
 import { useState, useEffect } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import WaitlistForm from "@/components/WaitlistForm";
+import WaitlistButton from "@/components/WaitlistButton";
 import Header from "@/components/Header";
 import { toast } from "sonner";
 import { 
