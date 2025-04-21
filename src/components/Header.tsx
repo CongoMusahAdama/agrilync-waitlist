@@ -23,6 +23,12 @@ const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
           </p>
           <div className="flex flex-wrap gap-3">
             <WaitlistButton 
+              onClick={onWaitlistClick}
+              className="text-sm px-3 py-1.5"
+            >
+              Join the Waitlist
+            </WaitlistButton>
+            <WaitlistButton 
               variant="secondary"
               link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
               icon={<MessageCircle className="w-4 h-4" />}
@@ -31,19 +37,18 @@ const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
             >
               Join Our WhatsApp Community
             </WaitlistButton>
-            <WaitlistButton 
-              onClick={onWaitlistClick}
-              className="text-sm px-3 py-1.5"
-            >
-              Join the Waitlist
-            </WaitlistButton>
           </div>
         </div>
         <div className="w-full md:w-1/2 order-1 md:order-2">
           <img 
             src="/lovable-uploads/c6337518-bf06-484f-ae02-dd818a8cee61.png"
             alt="African farmer with harvested crops"
-            className="w-full h-64 md:h-96 object-cover rounded-lg"
+            className="w-full h-auto object-cover rounded-lg shadow-lg"
+            style={{
+              maxHeight: "400px",
+              objectFit: "cover",
+              objectPosition: "center"
+            }}
           />
         </div>
       </div>
