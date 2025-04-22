@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
@@ -16,22 +15,13 @@ import {
 const Index = () => {
   const [showWaitlistForm, setShowWaitlistForm] = useState(false);
 
-  // Reference to the role benefits section
-  const roleTabsRef = useRef<HTMLElement>(null);
-
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     toast.success("Welcome to our community!", {
       description: "Connect with farmers and AgriTech enthusiasts.",
     });
   };
 
-  // Function to smoothly scroll to the role tabs section
-  const scrollToRoleTabs = () => {
-    const section = document.getElementById("role-benefits");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const navigate = window.lovableNavigate ?? ((url: string) => window.location.assign(url));
 
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
@@ -95,9 +85,9 @@ const Index = () => {
           <div className="flex justify-center mt-10">
             <button
               className="bg-agrilync-green text-agrilync-teal hover:bg-agrilync-magenta hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition-all duration-300 hover-scale"
-              onClick={scrollToRoleTabs}
+              onClick={() => navigate("/benefits")}
             >
-              See Benefits For Each Role
+              Explore Role Benefits
             </button>
           </div>
         </div>
