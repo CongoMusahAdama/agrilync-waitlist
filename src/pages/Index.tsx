@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
 import RoleTabs from "@/components/RoleTabs";
@@ -16,10 +16,21 @@ import {
 const Index = () => {
   const [showWaitlistForm, setShowWaitlistForm] = useState(false);
 
+  // Reference to the role benefits section
+  const roleTabsRef = useRef<HTMLElement>(null);
+
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     toast.success("Welcome to our community!", {
       description: "Connect with farmers and AgriTech enthusiasts.",
     });
+  };
+
+  // Function to smoothly scroll to the role tabs section
+  const scrollToRoleTabs = () => {
+    const section = document.getElementById("role-benefits");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -38,9 +49,10 @@ const Index = () => {
       <Section className="relative bg-gray-50 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/lovable-uploads/7bba4704-0754-4ba4-90f9-82a5ef93af03.png" 
+            src="/lovable-uploads/9395ed0e-9e7c-409e-9a9d-655ba2ad06ae.png" 
             alt="Happy farmer with fresh produce" 
             className="w-full h-full object-cover opacity-15"
+            draggable={false}
           />
           <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
         </div>
@@ -80,7 +92,19 @@ const Index = () => {
               description="Buy inputs and sell produce — no middlemen, better margins."
             />
           </div>
+          <div className="flex justify-center mt-10">
+            <button
+              className="bg-agrilync-green text-agrilync-teal hover:bg-agrilync-magenta hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition-all duration-300 hover-scale"
+              onClick={scrollToRoleTabs}
+            >
+              See Benefits For Each Role
+            </button>
+          </div>
         </div>
+      </Section>
+
+      <Section className="bg-white" id="role-benefits" ref={roleTabsRef}>
+        <RoleTabs />
       </Section>
 
       <Section className="bg-white">
