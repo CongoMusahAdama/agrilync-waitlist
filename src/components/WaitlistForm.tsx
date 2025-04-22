@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 interface FormData {
   name: string;
   contact: string;
-  password: string;
 }
 
 const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
@@ -16,7 +15,6 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     contact: "",
-    password: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -47,15 +45,6 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
           placeholder="Email or Phone Number"
           value={formData.contact}
           onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-          required
-        />
-      </div>
-      <div>
-        <Input
-          type="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
           required
         />
       </div>
