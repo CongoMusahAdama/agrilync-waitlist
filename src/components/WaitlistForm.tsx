@@ -17,17 +17,42 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
     contact: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success(
-      "You're on a right path to farm faster, trade better and access finance", 
-      {
+
+    try {
+      const response = await fetch('https://agrilync-wl-be.onrender.com/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.name,
+          contactInfo: formData.contact,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success(data.message, {
+          className: "animate-slide-up font-semibold",
+          duration: 5000,
+        });
+        onClose();
+        navigate('/thank-you');
+      } else {
+        toast.error(data.message || 'Failed to join the waitlist.', {
+          className: "animate-slide-up font-semibold",
+          duration: 5000,
+        });
+      }
+    } catch (error) {
+      toast.error('An error occurred. Please try again later.', {
         className: "animate-slide-up font-semibold",
         duration: 5000,
-      }
-    );
-    onClose();
-    navigate('/thank-you');
+      });
+    }
   };
 
   return (
