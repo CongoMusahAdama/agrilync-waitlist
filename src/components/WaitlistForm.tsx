@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   name: string;
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     contact: "",
@@ -19,8 +21,6 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Here you could add validation and API submission logic
     toast.success(
       "You're on a right path to farm faster, trade better and access finance", 
       {
@@ -29,6 +29,7 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
       }
     );
     onClose();
+    navigate('/thank-you');
   };
 
   return (
