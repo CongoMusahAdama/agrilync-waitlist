@@ -41,14 +41,17 @@ const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
         </div>
         <div className="w-full md:w-1/2 order-2 md:order-2">
           <img 
-            src="/lovable-uploads/c6337518-bf06-484f-ae02-dd818a8cee61.png"
-            alt="African farmer with harvested crops"
-            className="w-full h-auto rounded-lg shadow-lg"
+            src="/lovable-uploads/39e1d2ab-46f8-4b52-b6d2-66c0515f4cc6.png"
+            alt="African farmer showcasing harvested coffee beans with a bright smile"
+            className="w-full rounded-lg shadow-xl"
             style={{
               height: '500px',
               width: '100%',
               objectFit: 'cover',
-              objectPosition: 'center'
+              objectPosition: 'center',
+              imageRendering: 'crisp-edges',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden'
             }}
           />
         </div>
