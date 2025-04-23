@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+
+import { useState } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
-import RoleTabs from "@/components/RoleTabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import WaitlistForm from "@/components/WaitlistForm";
 import WaitlistButton from "@/components/WaitlistButton";
@@ -21,7 +21,17 @@ const Index = () => {
     });
   };
 
-  const navigate = window.lovableNavigate ?? ((url: string) => window.location.assign(url));
+  // Use window.location.href as fallback if lovableNavigate is not available
+  const navigate = (url: string) => {
+    if (typeof window !== "undefined") {
+      if (window.hasOwnProperty("lovableNavigate")) {
+        // @ts-ignore - lovableNavigate is a Lovable-specific function
+        window.lovableNavigate(url);
+      } else {
+        window.location.href = url;
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
@@ -91,10 +101,6 @@ const Index = () => {
             </button>
           </div>
         </div>
-      </Section>
-
-      <Section className="bg-white" id="role-benefits" ref={roleTabsRef}>
-        <RoleTabs />
       </Section>
 
       <Section className="bg-white">
