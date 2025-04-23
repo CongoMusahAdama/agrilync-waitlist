@@ -14,7 +14,7 @@ const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
         <img 
           src="/lovable-uploads/82523007-c308-4fe7-8e40-4fba11797ea9.png"
           alt="AgriLync Logo"
-          className="h-18 w-auto" // Increased from h-16 to h-18
+          className="h-16 w-auto"
           draggable={false}
         />
       </div>
