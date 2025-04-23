@@ -10,6 +10,14 @@ interface HeaderProps {
 const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
   return (
     <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
+      <div className="flex justify-between items-center mb-8">
+        <img 
+          src="/lovable-uploads/82523007-c308-4fe7-8e40-4fba11797ea9.png"
+          alt="AgriLync Logo"
+          className="h-12 w-auto"
+          draggable={false}
+        />
+      </div>
       <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
         <div className="w-full md:w-1/2 order-1 md:order-1">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-agrilync-teal leading-tight">
