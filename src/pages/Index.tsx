@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
@@ -94,7 +93,7 @@ const Index = () => {
           </div>
           <div className="flex justify-center mt-10">
             <button
-              className="bg-agrilync-green text-agrilync-teal hover:bg-agrilync-magenta hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition-all duration-300 hover-scale"
+              className="bg-agrilync-green text-agrilync-teal hover:bg-agrilync-magenta hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition-all duration-300 hover-scale animate-pulse-text"
               onClick={() => navigate("/benefits")}
             >
               Explore Role Benefits
