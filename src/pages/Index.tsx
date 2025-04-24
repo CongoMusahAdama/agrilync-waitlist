@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
@@ -5,6 +6,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import WaitlistForm from "@/components/WaitlistForm";
 import WaitlistButton from "@/components/WaitlistButton";
 import Header from "@/components/Header";
+import RoleTabs from "@/components/RoleTabs";
 import { toast } from "sonner";
 import { 
   LineChart, Bug, CloudSun, Wallet, Handshake, Store, 
