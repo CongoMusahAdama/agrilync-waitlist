@@ -101,10 +101,11 @@ const Index = () => {
               {"Benefits for Each Role".split('').map((letter, index) => (
                 <span 
                   key={index} 
-                  className="inline-block animate-fade-in"
+                  className="inline-block"
                   style={{ 
+                    opacity: 0,
+                    animation: `fadeSlideIn 0.6s ease-out forwards`,
                     animationDelay: `${index * 0.05}s`,
-                    animationFillMode: 'both',
                     marginRight: letter === ' ' ? '0.5rem' : '0.05rem'
                   }}
                 >
