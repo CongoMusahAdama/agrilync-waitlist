@@ -20,7 +20,6 @@ const Index = () => {
     });
   };
 
-  // Use window.location.href as fallback if lovableNavigate is not available
   const navigate = (url: string) => {
     if (typeof window !== "undefined") {
       if (window.hasOwnProperty("lovableNavigate")) {
@@ -91,14 +90,18 @@ const Index = () => {
               description="Buy inputs and sell produce — no middlemen, better margins."
             />
           </div>
-          <div className="flex justify-center mt-10">
-            <button
-              className="bg-agrilync-green text-agrilync-teal hover:bg-agrilync-magenta hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition-all duration-300 hover-scale animate-pulse-text"
-              onClick={() => navigate("/benefits")}
-            >
-              Explore Role Benefits
-            </button>
+        </div>
+      </Section>
+
+      <Section className="bg-white">
+        <div className="container max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-agrilync-teal">Benefits for Each Role</h2>
+            <p className="text-gray-700 mt-2">
+              Discover the unique advantages AgriLync brings to Farmers, Entrepreneurs, Buyers, Change Agents, and Investors.
+            </p>
           </div>
+          <RoleTabs />
         </div>
       </Section>
 

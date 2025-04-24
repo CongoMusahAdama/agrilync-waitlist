@@ -1,7 +1,6 @@
 
 import { MessageCircle } from "lucide-react";
 import WaitlistButton from "./WaitlistButton";
-import RoleTabs from "./RoleTabs";
 
 interface HeaderProps {
   onWhatsAppClick: (e: React.MouseEvent) => void;
@@ -65,16 +64,6 @@ const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
             }}
           />
         </div>
-      </div>
-      
-      <div className="mt-16">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-agrilync-teal">Benefits for Each Role</h2>
-          <p className="text-gray-700 mt-2">
-            Discover the unique advantages AgriLync brings to Farmers, Entrepreneurs, Buyers, Change Agents, and Investors.
-          </p>
-        </div>
-        <RoleTabs />
       </div>
     </header>
   );
