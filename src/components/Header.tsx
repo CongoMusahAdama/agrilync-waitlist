@@ -14,8 +14,12 @@ const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
         <img 
           src="/lovable-uploads/82523007-c308-4fe7-8e40-4fba11797ea9.png"
           alt="AgriLync Logo"
-          className="h-[80px] w-[180px] object-contain"
-          style={{ filter: 'brightness(1) contrast(1)' }}
+          className="h-[160px] w-[360px] object-contain"
+          style={{ 
+            filter: 'brightness(1) contrast(1)',
+            mixBlendMode: 'multiply',
+            backgroundColor: 'transparent'
+          }}
           draggable={false}
         />
       </div>

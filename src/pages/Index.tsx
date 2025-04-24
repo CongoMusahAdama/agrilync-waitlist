@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import Section from "@/components/Section";
@@ -99,13 +98,14 @@ const Index = () => {
         <div className="container max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-agrilync-teal">
-              {["B", "e", "n", "e", "f", "i", "t", "s", " ", "f", "o", "r", " ", "E", "a", "c", "h", " ", "R", "o", "l", "e"].map((letter, index) => (
+              {"Benefits for Each Role".split('').map((letter, index) => (
                 <span 
                   key={index} 
                   className="inline-block animate-fade-in"
                   style={{ 
-                    animationDelay: `${index * 0.1}s`,
-                    animationFillMode: 'both'
+                    animationDelay: `${index * 0.05}s`,
+                    animationFillMode: 'both',
+                    marginRight: letter === ' ' ? '0.5rem' : '0.05rem'
                   }}
                 >
                   {letter}
