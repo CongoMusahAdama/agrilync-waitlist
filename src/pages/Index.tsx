@@ -98,7 +98,20 @@ const Index = () => {
       <Section className="bg-white">
         <div className="container max-w-5xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-agrilync-teal">Benefits for Each Role</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-agrilync-teal">
+              {["B", "e", "n", "e", "f", "i", "t", "s", " ", "f", "o", "r", " ", "E", "a", "c", "h", " ", "R", "o", "l", "e"].map((letter, index) => (
+                <span 
+                  key={index} 
+                  className="inline-block animate-fade-in"
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    animationFillMode: 'both'
+                  }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </h2>
             <p className="text-gray-700 mt-2">
               Discover the unique advantages AgriLync brings to Farmers, Entrepreneurs, Buyers, Change Agents, and Investors.
             </p>
