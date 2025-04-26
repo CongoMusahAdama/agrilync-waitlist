@@ -6,14 +6,12 @@ import { toast } from "sonner";
 import { useNavigate } from 'react-router-dom';
 
 interface FormData {
-  name: string;
   contact: string;
 }
 
 const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
-    name: "",
     contact: "",
   });
 
@@ -27,7 +25,6 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          fullName: formData.name,
           contactInfo: formData.contact,
         }),
       });
@@ -57,14 +54,6 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 p-6">
-      <div>
-        <Input
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          required
-        />
-      </div>
       <div>
         <Input
           placeholder="Email or Phone Number"

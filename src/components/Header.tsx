@@ -1,13 +1,42 @@
 
+import { useState } from "react";
 import { MessageCircle } from "lucide-react";
-import WaitlistButton from "./WaitlistButton";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   onWhatsAppClick: (e: React.MouseEvent) => void;
-  onWaitlistClick: () => void;
 }
 
-const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
+const Header = ({ onWhatsAppClick }: HeaderProps) => {
+  const [contact, setContact] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('https://agrilync-wl-be.onrender.com/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contactInfo: contact,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.href = '/thank-you';
+      } else {
+        alert(data.message || 'Failed to join the waitlist.');
+      }
+    } catch (error) {
+      alert('An error occurred. Please try again later.');
+    }
+  };
+
   return (
     <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
       <div className="flex justify-between items-center mb-8">
@@ -34,23 +63,18 @@ const Header = ({ onWhatsAppClick, onWaitlistClick }: HeaderProps) => {
           <p className="text-lg mb-8 text-gray-700">
             Join our waitlist and be the first to connect with farmers, buyers, and investors through smart AI-driven tools!
           </p>
-          <div className="flex flex-wrap gap-3">
-            <WaitlistButton 
-              onClick={onWaitlistClick}
-              className="text-sm px-3 py-1.5"
-            >
-              Join the Waitlist
-            </WaitlistButton>
-            <WaitlistButton 
-              variant="secondary"
-              link="https://chat.whatsapp.com/Juajl1hFw2vDV6JR3kymUe"
-              icon={<MessageCircle className="w-4 h-4" />}
-              onClick={onWhatsAppClick}
-              className="text-sm px-3 py-1.5"
-            >
-              Join Our WhatsApp Community
-            </WaitlistButton>
-          </div>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
+            <Input
+              placeholder="Email or Phone Number"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+              required
+              className="flex-grow"
+            />
+            <Button type="submit" className="bg-agrilync-magenta hover:bg-agrilync-magenta/90">
+              Join Waitlist
+            </Button>
+          </form>
         </div>
         <div className="w-full md:w-1/2 order-2 md:order-2">
           <img 
