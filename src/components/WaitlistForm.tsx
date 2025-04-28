@@ -13,9 +13,11 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
   const [formData, setFormData] = useState<FormData>({
     contact: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await fetch('https://agrilync-wl-be.onrender.com/api/waitlist', {
@@ -48,6 +50,8 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
         className: "animate-slide-up font-semibold",
         duration: 5000,
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,7 +65,11 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
           required
         />
       </div>
-      <Button type="submit" className="w-full bg-agrilync-magenta hover:bg-agrilync-magenta/90">
+      <Button 
+        type="submit" 
+        className="w-full bg-agrilync-magenta hover:bg-agrilync-magenta/90"
+        isLoading={isLoading}
+      >
         Join the Waitlist
       </Button>
     </form>
