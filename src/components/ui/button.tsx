@@ -87,10 +87,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading ? (
-          <>
+          <span className="inline-flex items-center gap-2">
             <Spinner />
             {loadingText ? <span>{loadingText}</span> : null}
-          </>
+          </span>
         ) : (
           children
         )}
