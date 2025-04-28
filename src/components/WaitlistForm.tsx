@@ -1,27 +1,20 @@
-import { useState, useEffect } from "react";
+ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   contact: string;
 }
 
 const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     contact: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    console.log("isLoading state changed:", isLoading);
-  }, [isLoading]);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("handleSubmit called, setting isLoading true");
     setIsLoading(true);
 
     // Simulate API request time delay of 2 seconds
@@ -46,25 +39,22 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
           duration: 1000,
         });
         onClose();
-        navigate('/thank-you');
+        window.location.href = '/thank-you.html';
       } else {
         toast.error(data.message || 'Failed to join the waitlist.', {
           className: "animate-slide-up font-semibold",
           duration: 5000,
         });
+        setIsLoading(false);
       }
     } catch (error) {
       toast.error('An error occurred. Please try again later.', {
         className: "animate-slide-up font-semibold",
         duration: 5000,
       });
-    } finally {
-      console.log("handleSubmit finished, setting isLoading false");
       setIsLoading(false);
     }
   };
-
-  console.log("Rendering WaitlistForm, isLoading:", isLoading);
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 p-6">
