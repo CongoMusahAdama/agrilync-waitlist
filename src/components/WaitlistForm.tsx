@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,7 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
       if (data.success) {
         toast.success(data.message, {
           className: "animate-slide-up font-semibold",
-          duration: 5000,
+          duration: 1000,
         });
         onClose();
         navigate('/thank-you');

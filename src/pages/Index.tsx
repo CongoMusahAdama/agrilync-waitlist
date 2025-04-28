@@ -181,19 +181,15 @@ const Index = () => {
             <div>
               <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
               <div className="flex gap-4">
-                <a href="https://facebook.com/agrilync" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-400 hover:text-white transition-colors">
-                  <Facebook size={24} />
-                </a>
-                <a href="https://twitter.com/agrilync" target="_blank" rel="noopener noreferrer"
+                <a href="https://twitter.com/agri_lync" target="_blank" rel="noopener noreferrer"
                    className="text-gray-400 hover:text-white transition-colors">
                   <X size={24} />
                 </a>
-                <a href="https://instagram.com/agrilync" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/agri_lync?igsh=MWl0c2d3MXFpeTFzYw==" target="_blank" rel="noopener noreferrer"
                    className="text-gray-400 hover:text-white transition-colors">
                   <Instagram size={24} />
                 </a>
-                <a href="https://linkedin.com/company/agrilync" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/company/agrinexusgh/" target="_blank" rel="noopener noreferrer"
                    className="text-gray-400 hover:text-white transition-colors">
                   <Linkedin size={24} />
                 </a>
