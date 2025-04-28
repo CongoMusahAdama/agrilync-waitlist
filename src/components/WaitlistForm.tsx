@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -15,8 +15,13 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    console.log("isLoading state changed:", isLoading);
+  }, [isLoading]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("handleSubmit called, setting isLoading true");
     setIsLoading(true);
 
     // Simulate API request time delay of 2 seconds
@@ -54,9 +59,12 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
         duration: 5000,
       });
     } finally {
+      console.log("handleSubmit finished, setting isLoading false");
       setIsLoading(false);
     }
   };
+
+  console.log("Rendering WaitlistForm, isLoading:", isLoading);
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 p-6">
