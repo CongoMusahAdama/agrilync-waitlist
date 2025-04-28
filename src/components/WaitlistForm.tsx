@@ -19,6 +19,9 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
     e.preventDefault();
     setIsLoading(true);
 
+    // Simulate API request time delay of 2 seconds
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     try {
       const response = await fetch('https://agrilync-wl-be.onrender.com/api/waitlist', {
         method: 'POST',
@@ -69,6 +72,7 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
         type="submit" 
         className="w-full bg-agrilync-magenta hover:bg-agrilync-magenta/90"
         isLoading={isLoading}
+        loadingText="Joining..."
       >
         Join the Waitlist
       </Button>
