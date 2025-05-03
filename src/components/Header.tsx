@@ -45,9 +45,9 @@ const Header = ({ onWhatsAppClick }: HeaderProps) => {
     <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
       <div className="flex justify-between items-center mb-8">
         <img 
-          src="/lovable-uploads/d52428d8-0742-4cda-b8eb-71f35a7051d9.png"
+          src="/lovable-uploads/1667dd37-66ea-4c8b-bdd5-8e2b25278ab5.png"
           alt="AgriLync Logo"
-          className="h-[160px] w-[360px] object-contain"
+          className="h-[80px] object-contain"
           draggable={false}
         />
       </div>
