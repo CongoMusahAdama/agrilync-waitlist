@@ -45,7 +45,7 @@ const Header = ({ onWhatsAppClick }: HeaderProps) => {
           alt="AgriLync Logo"
           className="h-[160px] w-[360px] object-contain"
           style={{ 
-            filter: 'brightness(1) contrast(1)',
+            filter: 'brightness(0) invert(1)',
             mixBlendMode: 'multiply',
             backgroundColor: 'transparent'
           }}
