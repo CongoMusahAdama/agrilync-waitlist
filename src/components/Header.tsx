@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 interface HeaderProps {
   onWhatsAppClick: (e: React.MouseEvent) => void;
@@ -43,13 +42,16 @@ const Header = ({ onWhatsAppClick }: HeaderProps) => {
 
   return (
     <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-start items-center mb-8 gap-3">
         <img 
-          src="/lovable-uploads/1667dd37-66ea-4c8b-bdd5-8e2b25278ab5.png"
+          src="/lovable-uploads/agrilync.png"
           alt="AgriLync Logo"
-          className="h-[80px] object-contain"
+          className="h-[60px] object-contain"
           draggable={false}
         />
+        <span className="text-3xl font-semibold text-agrilync-teal font-sans select-none">
+          AgriLync
+        </span>
       </div>
       <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
         <div className="w-full md:w-1/2 order-1 md:order-1">
