@@ -35,7 +35,7 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
       const data = await response.json();
 
       if (data.success) {
-        toast.success(data.message, {
+        toast.success(data.message || 'Successfully joined the waitlist!', {
           className: "animate-slide-up font-semibold",
           duration: 1000,
         });
@@ -46,13 +46,13 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
           className: "animate-slide-up font-semibold",
           duration: 5000,
         });
-        setIsLoading(false);
       }
     } catch (error) {
       toast.error('An error occurred. Please try again later.', {
         className: "animate-slide-up font-semibold",
         duration: 5000,
       });
+    } finally {
       setIsLoading(false);
     }
   };
@@ -65,6 +65,7 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
           value={formData.contact}
           onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
           required
+          disabled={isLoading}
         />
       </div>
       <Button 
@@ -72,6 +73,8 @@ const WaitlistForm = ({ onClose }: { onClose: () => void }) => {
         className="w-full bg-agrilync-magenta hover:bg-agrilync-magenta/90"
         isLoading={isLoading}
         loadingText="Joining..."
+        disabled={isLoading}
+        style={{ opacity: isLoading ? 0.8 : 1 }}
       >
         Join the Waitlist
       </Button>

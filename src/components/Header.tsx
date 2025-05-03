@@ -10,9 +10,11 @@ interface HeaderProps {
 
 const Header = ({ onWhatsAppClick }: HeaderProps) => {
   const [contact, setContact] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await fetch('https://agrilync-wl-be.onrender.com/api/waitlist', {
@@ -34,6 +36,8 @@ const Header = ({ onWhatsAppClick }: HeaderProps) => {
       }
     } catch (error) {
       alert('An error occurred. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -41,14 +45,9 @@ const Header = ({ onWhatsAppClick }: HeaderProps) => {
     <header className="container max-w-5xl mx-auto pt-6 pb-4 px-4">
       <div className="flex justify-between items-center mb-8">
         <img 
-          src="/lovable-uploads/82523007-c308-4fe7-8e40-4fba11797ea9.png"
+          src="/lovable-uploads/d52428d8-0742-4cda-b8eb-71f35a7051d9.png"
           alt="AgriLync Logo"
           className="h-[160px] w-[360px] object-contain"
-          style={{ 
-            filter: 'brightness(0) invert(1)',
-            mixBlendMode: 'multiply',
-            backgroundColor: 'transparent'
-          }}
           draggable={false}
         />
       </div>
@@ -71,7 +70,12 @@ const Header = ({ onWhatsAppClick }: HeaderProps) => {
               required
               className="flex-grow"
             />
-            <Button type="submit" className="bg-agrilync-magenta hover:bg-agrilync-magenta/90">
+            <Button 
+              type="submit" 
+              className="bg-agrilync-magenta hover:bg-agrilync-magenta/90"
+              isLoading={isLoading}
+              loadingText="Joining..."
+            >
               Join Waitlist
             </Button>
           </form>
