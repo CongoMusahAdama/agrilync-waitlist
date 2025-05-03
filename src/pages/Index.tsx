@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import RoleTabs from "@/components/RoleTabs";
 import { toast } from "sonner";
 import { 
-  LineChart, Bug, CloudSun, Wallet, Handshake, Store, 
+  LineChart, CloudSun, Wallet, Handshake, Store, 
   MessageCircle, Facebook, Instagram, Linkedin, Mail, Phone, X 
 } from "lucide-react";
 
@@ -36,7 +36,6 @@ const Index = () => {
     <div className="min-h-screen font-montserrat bg-white text-gray-800">
       <Header 
         onWhatsAppClick={handleWhatsAppClick}
-        onWaitlistClick={() => setShowWaitlistForm(true)}
       />
 
       <Dialog open={showWaitlistForm} onOpenChange={setShowWaitlistForm}>
@@ -63,17 +62,14 @@ const Index = () => {
             <FeatureCard 
               icon={LineChart} 
               title="AI Crop Advisory"
-              description="Smart, personalized planting and harvesting advice based on soil conditions and market trends."
-            />
-            <FeatureCard 
-              icon={Bug} 
-              title="AI Pest & Disease Alerts"
-              description="Early warnings to protect your crops before damage becomes severe."
+              description="Leverage AI-powered insights to receive personalized crop care guidance, including real-time pest and disease alerts to protect and improve your yields."
+              isMVP={true}
             />
             <FeatureCard 
               icon={CloudSun} 
               title="Hyperlocal Weather Forecast"
               description="Real-time local weather planning tailored to your specific farm location."
+              isMVP={true}
             />
             <FeatureCard 
               icon={Wallet} 
@@ -84,6 +80,7 @@ const Index = () => {
               icon={Handshake} 
               title="FarmPartner Initiative"
               description="Find investors for your farm inputs and share the harvest benefits."
+              isMVP={true}
             />
             <FeatureCard 
               icon={Store} 
@@ -98,20 +95,13 @@ const Index = () => {
         <div className="container max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-agrilync-teal">
-              {"Benefits for Each Role".split('').map((letter, index) => (
-                <span 
-                  key={index} 
-                  className="inline-block"
-                  style={{ 
-                    opacity: 0,
-                    animation: `fadeSlideIn 0.6s ease-out forwards`,
-                    animationDelay: `${index * 0.05}s`,
-                    marginRight: letter === ' ' ? '0.5rem' : '0.05rem'
-                  }}
-                >
-                  {letter}
-                </span>
-              ))}
+              <span className="inline-block animate-fadeSlideIn" style={{ animationDelay: '0.1s' }}>Benefits</span>
+              <span className="inline-block animate-fadeSlideIn" style={{ animationDelay: '0.2s' }}>&nbsp;</span>
+              <span className="inline-block animate-fadeSlideIn" style={{ animationDelay: '0.3s' }}>for</span>
+              <span className="inline-block animate-fadeSlideIn" style={{ animationDelay: '0.4s' }}>&nbsp;</span>
+              <span className="inline-block animate-fadeSlideIn" style={{ animationDelay: '0.5s' }}>Each</span>
+              <span className="inline-block animate-fadeSlideIn" style={{ animationDelay: '0.6s' }}>&nbsp;</span>
+              <span className="inline-block animate-fadeSlideIn" style={{ animationDelay: '0.7s' }}>Role</span>
             </h2>
             <p className="text-gray-700 mt-2">
               Discover the unique advantages AgriLync brings to Farmers, Entrepreneurs, Buyers, Change Agents, and Investors.
