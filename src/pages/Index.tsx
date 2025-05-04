@@ -61,8 +61,8 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeatureCard 
               icon={LineChart} 
-              title="AI Crop Advisory"
-              description="Leverage AI-powered insights to receive personalized crop care guidance, including real-time pest and disease alerts to protect and improve your yields."
+              title="AI Crop & Human Consultation"
+              description="Get personalized crop care in Twi and English using AI-powered voice and text support. Detect pests via image upload and receive organic treatment suggestions."
               isMVP={true}
             />
             <FeatureCard 
