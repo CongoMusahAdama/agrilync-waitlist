@@ -97,14 +97,6 @@ const RoleTabs = () => {
           >
             {role.icon}
             <span className="hidden md:inline">{role.name}</span>
-            {role.version && (
-              <Badge 
-                variant="secondary" 
-                className="absolute -top-2 -right-2 bg-agrilync-green text-agrilync-teal text-xs px-1.5 py-0.5"
-              >
-                {role.version}
-              </Badge>
-            )}
           </button>
         ))}
       </div>
@@ -124,7 +116,7 @@ const RoleTabs = () => {
               {role.version && (
                 <Badge 
                   variant="outline" 
-                  className="bg-agrilync-green text-agrilync-teal ml-2 text-xs"
+                  className="text-#8B5CF6 bg-white text-xs ml-2"
                 >
                   {role.version}
                 </Badge>
