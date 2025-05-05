@@ -24,7 +24,7 @@ const roles: Role[] = [
       "Access financing for farm inputs and expansion",
       "Connect directly with buyers for fair prices"
     ],
-    version: "v1"
+    version: "V1"
   },
   {
     id: "entrepreneurs",
@@ -61,7 +61,7 @@ const roles: Role[] = [
       "Access training to enhance your agricultural expertise",
       "Build a sustainable impact business model"
     ],
-    version: "v1"
+    version: "V1"
   },
   {
     id: "investors",
@@ -74,7 +74,7 @@ const roles: Role[] = [
       "Monitor your investment performance in real-time",
       "Contribute to food security and economic development"
     ],
-    version: "v1"
+    version: "V1"
   }
 ];
 
@@ -116,7 +116,7 @@ const RoleTabs = () => {
               {role.version && (
                 <Badge 
                   variant="outline" 
-                  className="text-#8B5CF6 bg-white text-xs ml-2"
+                  className="bg-[#8B5CF6] text-white text-xs ml-2 px-1.5 py-0.5"
                 >
                   {role.version}
                 </Badge>
