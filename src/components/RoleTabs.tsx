@@ -2,12 +2,14 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { User, Briefcase, ShoppingCart, Sprout, Coins } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface Role {
   id: string;
   icon: React.ReactNode;
   name: string;
   benefits: string[];
+  version?: string;
 }
 
 const roles: Role[] = [
@@ -21,7 +23,8 @@ const roles: Role[] = [
       "Get hyperlocal weather forecasts for better planning",
       "Access financing for farm inputs and expansion",
       "Connect directly with buyers for fair prices"
-    ]
+    ],
+    version: "v1"
   },
   {
     id: "entrepreneurs",
@@ -57,7 +60,8 @@ const roles: Role[] = [
       "Earn commission by expanding the AgriLync network",
       "Access training to enhance your agricultural expertise",
       "Build a sustainable impact business model"
-    ]
+    ],
+    version: "v1"
   },
   {
     id: "investors",
@@ -69,7 +73,8 @@ const roles: Role[] = [
       "Support sustainable farming practices",
       "Monitor your investment performance in real-time",
       "Contribute to food security and economic development"
-    ]
+    ],
+    version: "v1"
   }
 ];
 
@@ -84,7 +89,7 @@ const RoleTabs = () => {
             key={role.id}
             onClick={() => setActiveRole(role.id)}
             className={cn(
-              "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200",
+              "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 relative",
               activeRole === role.id 
                 ? "bg-agrilync-teal text-white" 
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -92,6 +97,14 @@ const RoleTabs = () => {
           >
             {role.icon}
             <span className="hidden md:inline">{role.name}</span>
+            {role.version && (
+              <Badge 
+                variant="secondary" 
+                className="absolute -top-2 -right-2 bg-agrilync-green text-agrilync-teal text-xs px-1.5 py-0.5"
+              >
+                {role.version}
+              </Badge>
+            )}
           </button>
         ))}
       </div>
@@ -108,6 +121,14 @@ const RoleTabs = () => {
             <h3 className="text-xl font-bold mb-4 text-agrilync-teal flex items-center gap-2">
               {role.icon}
               <span>For {role.name}</span>
+              {role.version && (
+                <Badge 
+                  variant="outline" 
+                  className="bg-agrilync-green text-agrilync-teal ml-2 text-xs"
+                >
+                  {role.version}
+                </Badge>
+              )}
             </h3>
             <ul className="space-y-2">
               {role.benefits.map((benefit, index) => (
